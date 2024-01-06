@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import TaskList from './components/TaskList';
+import TaskForm from './components/TaskForm';
+import './styles.css'; // Import the CSS file
 
 function App() {
+  const handleTaskCreated = (newTask) => {
+    // You can update the task list state here or trigger a re-fetch
+    console.log('New task created:', newTask);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>CRUD React App</h1>
+      <TaskList />
+      <TaskForm onTaskCreated={handleTaskCreated} />
     </div>
   );
 }
